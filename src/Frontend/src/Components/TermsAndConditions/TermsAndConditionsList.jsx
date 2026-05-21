@@ -1,0 +1,131 @@
+import React, { Fragment, useState, useEffect } from "react";
+import { Breadcrumbs, H5 } from "../../AbstractElements";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Col,
+  Container,
+  Row,
+} from "reactstrap";
+import DataTable from "react-data-table-component";
+import { deleteTermsAndConditions, getTermsAndConditions } from "../../api/api";
+import { useNavigate } from "react-router-dom";
+
+function TermsAndConditionsList() {
+  const navigate = useNavigate();
+
+  const [allFaqState, setallFaqState] = useState([]);
+
+  const getCategoryList = async () => {
+    const res = await getTermsAndConditions();
+    setallFaqState([...res.data]);
+  };
+
+  const deleteFaq = async (id) => {
+    const res = await deleteTermsAndConditions(id);
+    console.log(id);
+    console.log(res.data);
+    if (res.status === 200) {
+      const freshArray = allFaqState.filter(
+        (val) => val.terms_and_services_id !== id
+      );
+      setallFaqState(freshArray);
+    }
+  };
+
+  useEffect(() => {
+    getCategoryList();
+  }, []);
+  const style2 = { width: 60, fontSize: 14, padding: 4 };
+  const ADD_Faq_Data = allFaqState.map((elem) => {
+    return {
+      Question: (
+        <div>
+          <span>{elem.terms_and_services_question}</span>
+        </div>
+      ),
+      Answer: `${elem.terms_and_services_answer}`,
+
+      action: (
+        <div>
+          <span>
+            <Button
+              onClick={() => deleteFaq(elem.terms_and_services_id)}
+              className="btn btn-danger btn-xs"
+              style={style2}
+            >
+              Delete
+            </Button>
+          </span>{" "}
+          &nbsp;&nbsp;
+          <span>
+            <Button
+              onClick={() => {
+                navigate(`${process.env.PUBLIC_URL}/terms/terms_and_conditions`, {
+                  state: { dataObj: elem },
+                });
+              }}
+              className="btn btn-success btn-xs"
+              style={style2}
+            >
+              Edit{" "}
+            </Button>
+          </span>
+        </div>
+      ),
+    };
+  });
+  const ADD_Faq_Columns = [
+    {
+      name: "Question",
+      selector: (row) => row.Question,
+      sortable: true,
+      center: true,
+      width: "250px",
+    },
+    {
+      name: "Answer",
+      selector: (row) => row.Answer,
+      sortable: true,
+      width: "250px",
+    },
+
+    {
+      name: "Action",
+      selector: (row) => row.action,
+      sortable: true,
+      center: true,
+    },
+  ];
+  return (
+    <Fragment>
+      <Breadcrumbs parent="Terms And Conditions Lists" title="Terms And Conditions List" mainTitle="Terms And Conditions List" />
+      <Container fluid={true}>
+        <Row>
+          <Col sm="12">
+            <Card>
+              <CardHeader className="pb-0">
+                <H5>{"Terms And Conditions List"}</H5>
+              </CardHeader>
+              <CardBody>
+                <div className="table-responsive product-table">
+                  <DataTable
+                    noHeader
+                    pagination
+                    paginationServer
+                    columns={ADD_Faq_Columns}
+                    data={ADD_Faq_Data}
+                  />
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </Fragment>
+  );
+}
+
+export default TermsAndConditionsList;

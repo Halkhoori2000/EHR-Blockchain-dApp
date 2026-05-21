@@ -1,0 +1,11 @@
+.rti--container {
+    --rti-tag: "#000";
+    --rti-bg: transparent !important;
+    --rti-input: transparent !important;
+}
+.rti--tag{
+     background-color: transparent !important;
+}
+.rti--input {
+    background-color: transparent !important;
+}
