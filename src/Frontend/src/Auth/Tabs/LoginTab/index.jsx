@@ -16,6 +16,11 @@ import SocialAuth from "./SocialAuth";
 import Web3 from "web3";
 import ABI from '../../../abi/abi';
 
+const GUEST_PROFILE = {
+  "0": "Demo Patient", "1": "demo.patient", "2": "", "3": "1",
+  name: "Demo Patient", username: "demo.patient", password: "", userType: "1"
+};
+
 const LoginTab = ({ selected }) => {
 
   const [username, setUsername] = useState(""); //test
@@ -117,6 +122,13 @@ const LoginTab = ({ selected }) => {
     })
 
   }
+  const browseAsGuest = () => {
+    localStorage.setItem('profile', JSON.stringify(GUEST_PROFILE));
+    localStorage.setItem('token', Jwt_token);
+    localStorage.setItem('guestMode', 'true');
+    window.location.href = `${process.env.PUBLIC_URL}/ehr/patientProfile`;
+  };
+
   const login = async (e) => {
     if (username == "") {
       alert("Please Enter Username")
@@ -164,6 +176,7 @@ const LoginTab = ({ selected }) => {
       else{
         localStorage.setItem("profile", JSON.stringify(result));
         localStorage.setItem("token", Jwt_token);
+        localStorage.removeItem('guestMode');
         setName(result.name)
         window.location.href = `${process.env.PUBLIC_URL}/ehr/patientProfile`;
       }
@@ -282,6 +295,13 @@ const LoginTab = ({ selected }) => {
           }} className="link" href="#javascript">
             {currentPage == "login" ? "Signup" : "Login"}
           </a>
+          {currentPage == "login" && (
+            <div style={{ textAlign: 'center', marginTop: '12px' }}>
+              <a onClick={browseAsGuest} className="link" href="#javascript" style={{ fontSize: '13px', opacity: 0.8 }}>
+                Browse as Guest — no wallet needed
+              </a>
+            </div>
+          )}
         </div>
         {/* <SocialAuth /> */}
       </Form>

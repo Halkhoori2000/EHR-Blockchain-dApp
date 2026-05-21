@@ -9,6 +9,7 @@ import { Btn, H6, Image } from "../../../AbstractElements";
 import { serverImageUrl } from "../../../api/api";
 import Web3 from "web3";
 import ABI from '../../../abi/abi';
+import { getWeb3AndAccount } from '../../../_helper/web3Helper';
 
 const style2 = { fontSize: 14, padding: 4 };
 const flexboxstyle = { display: 'flex', alignItems: 'center', gap: '7px' };
@@ -34,22 +35,7 @@ function List() {
     const profile = JSON.parse(localStorage.getItem("profile"))
     console.log(profile)
     setDoctorUsername(profile[1])
-    if (window.ethereum) { // Modern dapp browsers...
-      console.log(window.ethereum)
-      window.web3 = new Web3(window.ethereum);
-    } else if (window.web3) { // Legacy dapp browsers...
-      console.log(window.ethereum)
-      window.web3 = new Web3(window.web3.currentProvider);
-    }
-    let ethereum = window.ethereum;
-    if (typeof ethereum !== undefined && typeof ethereum !== null) {
-      console.log('MetaMask is installed!');
-    }
-    else {
-      console.log('MetaMask is uninstalled!');
-    }
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-    const account = accounts[0];
+    const { account } = await getWeb3AndAccount();
     console.log(account);
 
     const contractAddress = global.smartContractAddress;

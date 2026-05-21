@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/EHR-Blockchain-dApp/static/css/main.3259100d.css",
-    "main.js": "/EHR-Blockchain-dApp/static/js/main.94421399.js",
+    "main.css": "/EHR-Blockchain-dApp/static/css/main.55c3e4a6.css",
+    "main.js": "/EHR-Blockchain-dApp/static/js/main.644c60df.js",
     "static/js/453.8f8f39cb.chunk.js": "/EHR-Blockchain-dApp/static/js/453.8f8f39cb.chunk.js",
     "static/media/icofont.svg?v=1.0.0-beta": "/EHR-Blockchain-dApp/static/media/icofont.9999a483fca7c18fdec0.svg",
     "static/media/logo-1.png": "/EHR-Blockchain-dApp/static/media/logo-1.14c04876466c0624b2d2.png",
@@ -327,12 +327,12 @@
     "static/media/bd.svg": "/EHR-Blockchain-dApp/static/media/bd.571e114056c8791c87dd.svg",
     "static/media/hour.svg": "/EHR-Blockchain-dApp/static/media/hour.6548bc0623d611d7572e.svg",
     "static/media/min.svg": "/EHR-Blockchain-dApp/static/media/min.adcdc23489f6d03ca8b6.svg",
-    "main.3259100d.css.map": "/EHR-Blockchain-dApp/static/css/main.3259100d.css.map",
-    "main.94421399.js.map": "/EHR-Blockchain-dApp/static/js/main.94421399.js.map",
+    "main.55c3e4a6.css.map": "/EHR-Blockchain-dApp/static/css/main.55c3e4a6.css.map",
+    "main.644c60df.js.map": "/EHR-Blockchain-dApp/static/js/main.644c60df.js.map",
     "453.8f8f39cb.chunk.js.map": "/EHR-Blockchain-dApp/static/js/453.8f8f39cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3259100d.css",
-    "static/js/main.94421399.js"
+    "static/css/main.55c3e4a6.css",
+    "static/js/main.644c60df.js"
   ]
 }

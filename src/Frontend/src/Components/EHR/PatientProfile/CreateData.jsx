@@ -4,6 +4,7 @@ import { Button, Col, Form, FormGroup, Label, Row } from "reactstrap";
 // import { insertServiceSectionApI } from "../../../api/api";
 import Web3 from "web3";
 import ABI from '../../../abi/abi';
+import { getWeb3AndAccount } from '../../../_helper/web3Helper';
 const CreateData = () => {
   const history = useNavigate();
 
@@ -37,6 +38,13 @@ const CreateData = () => {
     console.log(profile)
     setUsername(profile[1])
     setUserType(profile[3])
+    if (localStorage.getItem('guestMode') === 'true') {
+      setName("Demo Patient");
+      setPhone("+971-50-000-0000");
+      setSymptoms("Hypertension, Type 2 Diabetes");
+      setDescription("Routine annual checkup. Patient reports no new symptoms since last visit. Blood pressure is managed with current medication.");
+      return;
+    }
     if (profile[3] != "1") {
       setName(profile[0])
       return
@@ -84,6 +92,10 @@ const CreateData = () => {
 
   }
   async function updateProfile() {
+    if (localStorage.getItem('guestMode') === 'true') {
+      alert('Sign in with MetaMask to update your profile.');
+      return;
+    }
     if (name == "") {
       alert("Please Enter Name")
       return
@@ -205,8 +217,8 @@ const CreateData = () => {
             <FormGroup className="mb-0">
               <Button onClick={(e) => {
                 updateProfile()
-              }} type="submit" color="success">
-                Update
+              }} type="submit" color="success" disabled={localStorage.getItem('guestMode') === 'true'}>
+                {localStorage.getItem('guestMode') === 'true' ? 'Sign in to Update' : 'Update'}
               </Button>
             </FormGroup>
           </Col>
