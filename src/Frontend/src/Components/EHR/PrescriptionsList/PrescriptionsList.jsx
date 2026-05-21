@@ -37,6 +37,15 @@ function List() {
     console.log(profile)
     setDoctorUsername(profile[1])
     setUserType(profile[3])
+
+    if (localStorage.getItem('guestMode') === 'true') {
+      setData([
+        ['Demo Patient', 'demo.patient', '+971-50-000-0000', '1', true,
+          'Amlodipine 5mg – once daily (morning)\nMetformin 500mg – twice daily with meals\nLisinopril 10mg – once daily (morning)\nAtorvastatin 20mg – once daily (evening)'],
+      ]);
+      return;
+    }
+
     const { account } = await getWeb3AndAccount();
     console.log(account);
 

@@ -35,6 +35,17 @@ function List() {
     const profile = JSON.parse(localStorage.getItem("profile"))
     console.log(profile)
     setPatientUsername(profile[1])
+
+    if (localStorage.getItem('guestMode') === 'true') {
+      setData([
+        ['Dr. John Smith',       'dr.john.smith',     'Cardiology',       '2', true],
+        ['Dr. Sarah Chen',       'dr.sarah.chen',     'Endocrinology',    '2', true],
+        ['Dr. Mohammed Al Rashid','dr.mohammed',      'General Practice', '2', false],
+        ['Dr. Emily Watson',     'dr.emily.watson',   'Internal Medicine','2', false],
+      ]);
+      return;
+    }
+
     const { account } = await getWeb3AndAccount();
     console.log(account);
 

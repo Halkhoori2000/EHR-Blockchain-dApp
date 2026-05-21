@@ -126,7 +126,7 @@ const LoginTab = ({ selected }) => {
     localStorage.setItem('profile', JSON.stringify(GUEST_PROFILE));
     localStorage.setItem('token', Jwt_token);
     localStorage.setItem('guestMode', 'true');
-    window.location.href = `${process.env.PUBLIC_URL}/ehr/patientProfile`;
+    history(`${process.env.PUBLIC_URL}/ehr/patientProfile`);
   };
 
   const login = async (e) => {
@@ -299,7 +299,7 @@ const LoginTab = ({ selected }) => {
           </div>
           {currentPage == "login" && (
             <div style={{ textAlign: 'center', marginTop: '8px' }}>
-              <a onClick={browseAsGuest} className="link" href="#javascript" style={{ fontSize: '13px', opacity: 0.8 }}>
+              <a onClick={(e) => { e.preventDefault(); browseAsGuest(); }} className="link" href="#" style={{ fontSize: '13px', opacity: 0.8 }}>
                 Browse as Guest — no wallet needed
               </a>
             </div>
