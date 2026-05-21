@@ -35,6 +35,17 @@ function List() {
     const profile = JSON.parse(localStorage.getItem("profile"))
     console.log(profile)
     setDoctorUsername(profile[1])
+
+    if (localStorage.getItem('guestMode') === 'true') {
+      setData([
+        ['Ahmed Al Mansouri', 'ahmed.mansouri', '+971-50-123-4567', '1', true,
+          'Amlodipine 5mg – once daily | Metformin 500mg – twice daily | Lisinopril 10mg – once daily | Atorvastatin 20mg – once daily | Aspirin 81mg – once daily',
+          'CBC: WBC 6.2 · RBC 4.8 · Hgb 13.9 · Plt 210\nHbA1c: 7.1% (target <7.5%) ✓\nLipid Panel: LDL 88 · HDL 52 · TG 142\nRenal: Creatinine 0.9 · eGFR 92 · BUN 14\nDate: 15 Apr 2025 — Dr. Fatima Al Zaabi'
+        ],
+      ]);
+      return;
+    }
+
     const { account } = await getWeb3AndAccount();
     console.log(account);
 
@@ -143,7 +154,10 @@ function List() {
       action: (
         <div style={flexboxstyle}>
           <Button style={style2} type="button" color="success" size="sm" onClick={() => {
-            console.log(elem)
+            if (localStorage.getItem('guestMode') === 'true') {
+              alert('Lab Report Summary:\n\n' + elem[6]);
+              return;
+            }
             const uri = global.backendUrlFile+elem[6]
             var link = document.createElement("a");
             link.href = uri;

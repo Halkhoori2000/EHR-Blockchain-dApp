@@ -37,6 +37,10 @@ const CreateData = () => {
     updatePrescription()
   };
   async function updatePrescription() {
+    if (localStorage.getItem('guestMode') === 'true') {
+      alert('Sign in with MetaMask to update prescriptions.');
+      return;
+    }
     if (prescription == "") {
       alert("Please Enter Prescription")
       return
