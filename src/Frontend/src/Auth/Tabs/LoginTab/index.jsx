@@ -285,18 +285,20 @@ const LoginTab = ({ selected }) => {
           >
             {loading ? "LOADING..." : currentPage == "login" ? "Sign in" : "Sign up"}
           </Btn>
-          <a onClick={(e) => {
-            if (currentPage == "login") {
-              setCurrentPage("signup")
-            }
-            else {
-              setCurrentPage("login")
-            }
-          }} className="link" href="#javascript">
-            {currentPage == "login" ? "Signup" : "Login"}
-          </a>
+          <div style={{ textAlign: 'center', marginTop: '12px' }}>
+            <a onClick={(e) => {
+              if (currentPage == "login") {
+                setCurrentPage("signup")
+              }
+              else {
+                setCurrentPage("login")
+              }
+            }} className="link" href="#javascript">
+              {currentPage == "login" ? "Signup" : "Login"}
+            </a>
+          </div>
           {currentPage == "login" && (
-            <div style={{ textAlign: 'center', marginTop: '12px' }}>
+            <div style={{ textAlign: 'center', marginTop: '8px' }}>
               <a onClick={browseAsGuest} className="link" href="#javascript" style={{ fontSize: '13px', opacity: 0.8 }}>
                 Browse as Guest — no wallet needed
               </a>
