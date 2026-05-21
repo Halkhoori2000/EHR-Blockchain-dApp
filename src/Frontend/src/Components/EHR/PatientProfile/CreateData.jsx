@@ -39,10 +39,10 @@ const CreateData = () => {
     setUsername(profile[1])
     setUserType(profile[3])
     if (localStorage.getItem('guestMode') === 'true') {
-      setName("Demo Patient");
-      setPhone("+971-50-000-0000");
-      setSymptoms("Hypertension, Type 2 Diabetes");
-      setDescription("Routine annual checkup. Patient reports no new symptoms since last visit. Blood pressure is managed with current medication.");
+      setName("Ahmed Al Mansouri");
+      setPhone("+971-50-123-4567");
+      setSymptoms("Hypertension (Stage 2), Type 2 Diabetes Mellitus, Hyperlipidaemia");
+      setDescription("45-year-old male with controlled hypertension and Type 2 Diabetes. Last HbA1c: 7.1% (improved from 8.3% six months prior). Blood pressure stable at 128/82 mmHg on current regimen. Lipid panel within target range on statin therapy. Recommended follow-up in 3 months with repeat HbA1c and renal function panel.");
       return;
     }
     if (profile[3] != "1") {

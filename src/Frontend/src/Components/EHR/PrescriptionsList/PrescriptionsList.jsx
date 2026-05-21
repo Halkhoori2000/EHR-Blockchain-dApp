@@ -40,8 +40,8 @@ function List() {
 
     if (localStorage.getItem('guestMode') === 'true') {
       setData([
-        ['Demo Patient', 'demo.patient', '+971-50-000-0000', '1', true,
-          'Amlodipine 5mg – once daily (morning)\nMetformin 500mg – twice daily with meals\nLisinopril 10mg – once daily (morning)\nAtorvastatin 20mg – once daily (evening)'],
+        ['Ahmed Al Mansouri', 'ahmed.mansouri', '+971-50-123-4567', '1', true,
+          'Amlodipine 5mg – once daily (morning) | Metformin 500mg – twice daily with meals | Lisinopril 10mg – once daily (morning) | Atorvastatin 20mg – once daily (evening) | Aspirin 81mg – once daily'],
       ]);
       return;
     }

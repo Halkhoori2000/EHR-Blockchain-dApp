@@ -37,11 +37,13 @@ function List() {
     setPatientUsername(profile[1])
 
     if (localStorage.getItem('guestMode') === 'true') {
+      setPatientUsername('ahmed.mansouri');
       setData([
-        ['Dr. John Smith',       'dr.john.smith',     'Cardiology',       '2', true],
-        ['Dr. Sarah Chen',       'dr.sarah.chen',     'Endocrinology',    '2', true],
-        ['Dr. Mohammed Al Rashid','dr.mohammed',      'General Practice', '2', false],
-        ['Dr. Emily Watson',     'dr.emily.watson',   'Internal Medicine','2', false],
+        ['Dr. James Carter',       'dr.james.carter',    'Cardiology',            '2', true],
+        ['Dr. Fatima Al Zaabi',    'dr.fatima.alzaabi',  'Endocrinology',         '2', true],
+        ['Dr. Ravi Patel',         'dr.ravi.patel',      'General Practice',      '2', true],
+        ['Dr. Emily Watson',       'dr.emily.watson',    'Internal Medicine',     '2', false],
+        ['Dr. Khalid Al Hashimi',  'dr.khalid',          'Nephrology',            '2', false],
       ]);
       return;
     }

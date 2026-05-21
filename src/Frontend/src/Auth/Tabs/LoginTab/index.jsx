@@ -17,8 +17,8 @@ import Web3 from "web3";
 import ABI from '../../../abi/abi';
 
 const GUEST_PROFILE = {
-  "0": "Demo Patient", "1": "demo.patient", "2": "", "3": "1",
-  name: "Demo Patient", username: "demo.patient", password: "", userType: "1"
+  "0": "Ahmed Al Mansouri", "1": "ahmed.mansouri", "2": "", "3": "1",
+  name: "Ahmed Al Mansouri", username: "ahmed.mansouri", password: "", userType: "1"
 };
 
 const LoginTab = ({ selected }) => {
@@ -266,7 +266,6 @@ const LoginTab = ({ selected }) => {
           </div>
           : null} */}
         <div className="form-group mb-0">
-
           <Btn
             attrBtn={{
               color: "primary",
@@ -275,36 +274,35 @@ const LoginTab = ({ selected }) => {
               onClick: (e) => {
                 if (currentPage == "login") {
                   login(e)
-                }
-                else {
+                } else {
                   signup()
                 }
-
               }
             }}
           >
             {loading ? "LOADING..." : currentPage == "login" ? "Sign in" : "Sign up"}
           </Btn>
-          <div style={{ textAlign: 'center', marginTop: '12px' }}>
-            <a onClick={(e) => {
-              if (currentPage == "login") {
-                setCurrentPage("signup")
-              }
-              else {
-                setCurrentPage("login")
-              }
-            }} className="link" href="#javascript">
-              {currentPage == "login" ? "Signup" : "Login"}
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '14px' }}>
+          <a
+            href="#javascript"
+            onClick={(e) => { e.preventDefault(); setCurrentPage(currentPage == "login" ? "signup" : "login"); }}
+            style={{ color: '#7366ff', fontWeight: 500, fontSize: '14px', textDecoration: 'none' }}
+          >
+            {currentPage == "login" ? "Create an account" : "Back to Login"}
+          </a>
+        </div>
+        {currentPage == "login" && (
+          <div style={{ textAlign: 'center', marginTop: '10px', paddingBottom: '4px' }}>
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); browseAsGuest(); }}
+              style={{ color: '#8b949e', fontSize: '13px', textDecoration: 'none' }}
+            >
+              Browse as Guest — no wallet needed
             </a>
           </div>
-          {currentPage == "login" && (
-            <div style={{ textAlign: 'center', marginTop: '8px' }}>
-              <a onClick={(e) => { e.preventDefault(); browseAsGuest(); }} className="link" href="#" style={{ fontSize: '13px', opacity: 0.8 }}>
-                Browse as Guest — no wallet needed
-              </a>
-            </div>
-          )}
-        </div>
+        )}
         {/* <SocialAuth /> */}
       </Form>
     </Fragment>
