@@ -1,9 +1,6 @@
 # Dependencies
 src/Frontend/node_modules/
 
-# Build output
-src/Frontend/build/
-
 # OS
 .DS_Store
 Thumbs.db
