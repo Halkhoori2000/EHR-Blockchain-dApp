@@ -38,6 +38,10 @@ Built with a Solidity smart contract deployed on the Polygon network and a React
 | `removeAccessToDoctor(doctorUsername, patientUsername)` | Revokes doctor access |
 | `updatePrescription(patientUsername, prescription)` | Doctor writes prescription to patient record |
 | `updateReports(patientUsername, reports)` | Lab person writes report to patient record |
+| `getDoctors()` | Returns array of all registered Doctor structs |
+| `getPatients()` | Returns array of all registered Patient structs |
+| `getDoctorsPatients()` | Returns array mapping each doctor to their permitted patient list |
+| `getPatientsPrescription()` | Returns array of all patient prescription/report records |
 
 ---
 
