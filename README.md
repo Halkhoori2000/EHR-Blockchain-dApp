@@ -4,7 +4,9 @@ A decentralised Electronic Health Record system where patient data lives on the 
 
 Built with a Solidity smart contract deployed on the Ethereum network and a React frontend that connects via MetaMask and web3.js. The contract stores user accounts, patient profiles, prescriptions, and lab reports in on-chain mappings. Passwords are never stored in plaintext — only their keccak256 hash is saved on-chain. Patients manage access by calling `addAccessToDoctor` / `removeAccessToDoctor`, which updates the doctor's patient list directly in contract state. All reads are free (view functions); writes (registration, updates, access changes) require an Ethereum transaction signed through MetaMask.
 
-**[Live Demo →](https://halkhoori2000.github.io/EHR-Blockchain-dApp/)**  
+**[Live Demo →](https://halkhoori2000.github.io/EHR-Blockchain-dApp/)**
+
+**[📄 Final Report (PDF)](EHR-Blockchain-Report.pdf)**  
 **[Contract on Etherscan →](https://etherscan.io/address/0x10E268d0EB3CD00746bF9b658324Acd585Af4166)**
 
 ---
