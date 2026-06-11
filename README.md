@@ -1,6 +1,6 @@
 # EHR Blockchain dApp — Solidity, React, Ethereum
 
-*CMPSC 297 — Special Topics: Blockchain Deep Dive · The Pennsylvania State University · 2022*
+*CMPSC 297 — Special Topics: Blockchain Deep Dive · The Pennsylvania State University · 2023*
 
 A decentralised Electronic Health Record system where patient data lives on the blockchain instead of a central hospital database. Patients own their records and explicitly grant or revoke doctor access — no third party controls the data. The system supports three roles: Patient, Doctor, and Lab Person.
 
@@ -97,4 +97,4 @@ npm start
 ## Course
 
 CMPSC 297 — Special Topics: Blockchain Deep Dive  
-The Pennsylvania State University · 2022
+The Pennsylvania State University · 2023
